@@ -61,10 +61,6 @@ git log: 显示log
 - 出图```git log --graph```
 git diff：显示更改前后的差别（不用add也可以显示）
 
-新建文件：
-```
-touch readme.md
-```
 
 # push 和 pull
 ### 2.4 把仓库clone到本地
@@ -77,6 +73,7 @@ $git clone git@github.com:guofei9987/hello-world.git
 - 执行add语句后，状态变为 to be committed
 ```
 git add filename
+git add -A
 ```
 
 然后commit，在弹出的txt中填入这次commit的相关信息：
@@ -128,11 +125,28 @@ git push -u origin master
 git clone git@github.com:jperla/neural.git
 ```
 
-git clone
+# 实用工具
+在github上比较两个branch的不同
+```
+https://github.com/guofei9987/plans/compare/master...master1
+```
+在github上比较同一分支不同时间内的差别
+```
+https://github.com/guofei9987/plans/compare/master@{7.days.ago}...master
+```
+在github上比较指定日期之间的差别
+```
+https://github.com/guofei9987/plans/compare/master@{2017-01-24}...master@{2017-02-04}
+```
+- github pages
+https://pages.github.com/
+- github jobs
 
-
-
-
+# Pull Request （PR）
+```
+git fetch
+git pull
+```
 
 
 
