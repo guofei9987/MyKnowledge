@@ -143,6 +143,22 @@ https://pages.github.com/
 - github jobs
 
 # Pull Request （PR）
+## 如果想参与别人的项目
+1. 在github.com上fork到自己仓库
+2. clone到本地
+3. 建立一个branch
+```
+git branch work
+git checkout work
+```
+4. 编程工作
+5. push到自己的网站
+```
+git push origin work
+```
+6. 在github上发送PR
+
+## 获取github.com上的新数据
 ```
 git fetch
 git pull
