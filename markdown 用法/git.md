@@ -197,6 +197,6 @@ Git装好后有个cmd目录，你把这个路径加到Windows的path环境变量
 ## 个人blog
 
 ### 解析到www的方法（成功）
-github 端用www.guofei.com
+github 端用www.guofei.site
 
 阿里云解析时 用cname 和 @ 和 guofei9987.github.io
