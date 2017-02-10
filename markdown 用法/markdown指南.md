@@ -1,6 +1,6 @@
 
 一个table生成工具：
-http://tableizer.journalistopia.com/tableizer.php
+http://tableizer.journalistopia.com/
 
 # Cmd Markdown 简明语法手册
 
