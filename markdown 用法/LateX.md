@@ -61,6 +61,24 @@ $$f(x)=
 * 结束
 .
 
+# Latex中的希腊字母
+
+<table class="tableizer-table">
+<thead><tr class="tableizer-firstrow"><th>希腊字母</th><th>LaTeX形式</th><th>希腊字母</th><th>LaTeX形式</th></tr></thead><tbody>
+ <tr><td>α A</td><td>\alpha A</td><td>μ N</td><td>\mu N</td></tr>
+ <tr><td>β B</td><td>\beta B</td><td>ξ Ξ</td><td>\xi \Xi</td></tr>
+ <tr><td>γ Γ</td><td>\gamma \Gamma</td><td>o O</td><td>o O</td></tr>
+ <tr><td>δ Δ</td><td>\delta \ Delta</td><td>π Π</td><td>\pi \Pi</td></tr>
+ <tr><td>ϵ ε E</td><td>\epsilon \varepsilon E</td><td>ρ ϱ P</td><td>\rho \varrho P</td></tr>
+ <tr><td>ζ Z</td><td>\zeta Z</td><td>σ Σ</td><td>\sigma \Sigma</td></tr>
+ <tr><td>η H</td><td>\eta H</td><td>τ T</td><td>\tau T</td></tr>
+ <tr><td>θ ϑ Θ</td><td>\theta \vartheta \Theta</td><td>υ Υ</td><td>\upsilon \Upsilon</td></tr>
+ <tr><td>ι I</td><td>\iota I</td><td>ϕ φ Φ</td><td>\phi \varphi \Phi</td></tr>
+ <tr><td>κ K</td><td>\kappa K</td><td>χ X</td><td>\chi X</td></tr>
+ <tr><td>λ Λ</td><td>\lambda \Lambda</td><td>ψ Ψ</td><td>\psi \Psi</td></tr>
+ <tr><td>μ M</td><td>\mu M</td><td>ω Ω</td><td>\omega \Omega</td></tr>
+</tbody></table>
+
 # 希腊字母
 
 <table class="tableizer-table">
