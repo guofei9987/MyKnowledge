@@ -14,6 +14,7 @@
 - 上下括号
 - $\underbrace{a+b+\cdots+z}_{26}$
 
+
 ## 第四部分：向量箭头
 - $\vec abc$
 - 长向量箭头
@@ -55,8 +56,25 @@ $$f(x)=
 0& \text{x=0}\\
 1& \text{x!=0}
 \end{cases}$$
+
+## 矩阵和行列式
+
+
+$
+ \left ( \begin{array}{ccc}
+a & b & c \\
+d & e & f \\
+g & h & i \end{array} \right ) $
+
+
+$
+ \left | \begin{array}{ccc}
+a & b & c \\
+d & e & f \\
+g & h & i \end{array} \right | $
+
+
 ---
-12
 
 * 结束
 .
