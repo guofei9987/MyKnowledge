@@ -95,12 +95,20 @@ write down : free your working memory
 
 - memory palace technique
 
+# week4:Renaissance Learning and Unlocking Your Potential
+how to more profitably interact with fellow learners, how to recognize your own strengths, and how to avoid the 'imposter syndrome.'（冒名顶替综合征）
+- physical exercise
+- 大脑发展的黄金时期
 
+- The visual cortex reached maturation in childhood
+- The prefrontal cortex is the last part of the cortex to mature
 
+- learn using metaphor and analogy
+- work profitably with teammates
+- perform well on tests
 
-
-
-
+# week4-2
+- right hemisphere help us step back and put our work into big picture perspective
 
 
 
