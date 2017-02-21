@@ -109,14 +109,3 @@ how to more profitably interact with fellow learners, how to recognize your own 
 
 # week4-2
 - right hemisphere help us step back and put our work into big picture perspective
-
-
-
-
-
-
-
-
-
-
-【未完待续。。。】
