@@ -56,6 +56,27 @@ F^* _ L     &      & {S_L \leq 0 < S_M}\\
 F^* _ R     &      & {S_M \leq 0 < S_R}\\
 F_R       &      & {S_R \leq 0}
 \end{array} \right. $$
+
+{}居中
+lcl 居左
+ccc 居中
+rcl 右对齐
+
+嵌套：
+$$
+\begin{array}{rcl}
+F_L       &      & {0      <      S_L}\\
+F^* _ L     &      & {S_L \leq 0 < S_M}\\
+F^* _ R     &      & {S_M \leq 0 < S_R}\\
+\left\{ \begin{array}{rcl}
+F_L       &      & {0      <      S_L}\\
+F^* _ L     &      & {S_L \leq 0 < S_M}\\
+F^* _ R     &      & {S_M \leq 0 < S_R}\\
+F_R       &      & {S_R \leq 0}
+\end{array} \right.
+\end{array}  $$
+
+
 方法三:
 $$f(x)=
 \begin{cases}
