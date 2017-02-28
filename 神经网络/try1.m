@@ -12,7 +12,7 @@ close all
 % data=random('unif',0,5,3000,2);
 % label=(data(:,1)+data(:,2)>2);
 
-num_per_layer=[3,10,10,1];
+num_per_layer=[3,3,1];
 
 num_layer=size(num_per_layer,2);
 
@@ -95,7 +95,7 @@ end
 
 %%
 
-[X,Y]=meshgrid(0:0.02:5);
+[X,Y]=meshgrid(0:0.02:1);
 X=X(:);Y=Y(:);
 for c=1:size(X)
     x=[1,X(c),Y(c)];
