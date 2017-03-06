@@ -7,12 +7,13 @@ clc
 close all
 
  data=random('unif',0,1,3000,2);
- label=(((data(:,1)-0.5).^2+(data(:,2)-0.5).^2)<0.12);
-
+ label1=(((data(:,1)-0.25).^2+(data(:,2)-0.25).^2)<0.1^2);
+label2=(((data(:,1)-0.75).^2+(data(:,2)-0.75).^2)<0.1^2);
+label=label1|label2
 % data=random('unif',0,5,3000,2);
 % label=(data(:,1)+data(:,2)>2);
 
-num_per_layer=[3,3,1];
+num_per_layer=[3,10,1];
 
 num_layer=size(num_per_layer,2);
 
