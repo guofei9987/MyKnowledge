@@ -239,7 +239,7 @@ D-->>A: Dashed open arrow
 #### 更多语法参考：[甘特图语法参考](https://knsv.github.io/mermaid/#gant-diagrams)
 
 ### 10. Mermaid 流程图
-```{mermaid}
+```{mermaid id:"izzemxmc"}
 graph TD;
     A-->B;
     A-->C;
@@ -250,7 +250,7 @@ graph TD;
 
 
 
-```{mermaid}
+```{mermaid id:"izzemxmd"}
 graph LR
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
