@@ -6,12 +6,13 @@ a=numpy.array([1,2,3,4])
 b=numpy.array([[1,2,3],[4,9,8]])
 c=numpy.array([[1,2,3],[2]])
 ```
-- 用数列生成
+- 用arange，linspace等生成
 ```python
-numpy.arange(0,1,0.11)#开始值，终值，步长
-numpy.linspace(0,1,5.5)#开始值，终止，元素个数
-numpy.linspace(0,1,5.5,endpoint=False)#endpoint用来指定是否包含末尾值
+numpy.arange(0,1,0.11)#开始值，终值，步长。不包含终值
+numpy.linspace(0,1,5.5)#开始值，终值，元素个数
+numpy.linspace(0,1,5.5,endpoint=False)#endpoint用来指定是否包含末尾值，默认为True
 ```
+(arrange生成array,range生成list)
 
 - 预设的方法生成
 ```python
@@ -74,6 +75,110 @@ a[a>0.5]
 ```
 
 ## 方法
-a.shape
 
-- 如果a是一维数组，输出为
+### a.shape
+
+- 返回a的维度
+    - 如果a是一维数组，输出为(4,)
+    - 二维数组，输出为(2, 3)
+    - 如果某一维不规则，那么不显示这一维(2,)
+a.shape返回array的维度
+```python
+a.shape
+```
+
+- 可以对a.shape赋值,效果是改变维度
+```python
+a=numpy.array([[1,2,3],[4,5,6]])
+a.shape=3,2
+```
+
+- 在赋值时，用-1表示自动计算这一维的长度
+```python
+a=numpy.array([[1,2,3],[4,5,6]])
+a.shape=3,-1
+```
+
+### reshape
+- reshape与shape的区别是，reshape保持原数组维度不变
+- 然而，内存是共享的
+
+```python
+a=numpy.array([[1,2,3],[4,5,6]])
+b=a.reshape((3,2))
+```
+这里生成的a和b维度不同，但是共享内存
+
+比较而言，用shape，直接改了原array：
+```python
+a=numpy.array([[1,2,3],[4,5,6]])
+b=a
+b.shape=3,-1
+```
+这里a，b的维度都改了
+
+
+# dtype
+```python
+a.dtype#返回元素类型
+a=numpy.array([1,2,3,4],dtype=numpy.float)#指定元素类型
+a=numpy.array([1,2,3,4],dtype=numpy.complex)#指定元素类型
+```
+
+显示可用的dtype列表
+```
+set(numpy.typeDict.values())
+```
+
+# numpy.sin
+
+# 运算符
+以下x1,x2都是array，对对应元素进行操作：
+```python
+x1+x2
+x1-x2
+x1*x2
+x1/x2
+x1//x2
+x1%x2
+x1**x2
+```
+
+对每个
+```python
+x1**2#可以是一个数字，也可以是只有一个元素的array
+x1*numpy.array([2])#同理
+```
+
+# matrix
+
+## 生成
+## shape
+```python
+import numpy as np
+a = np.matrix([[1, 2, 3], [5, 5, 6]])
+a.shape=3,2
+```
+
+## 运算
+```python
+b=a.T#转置
+a*b#矩阵相乘
+np.linalg.inv(a)#取逆
+a**2#矩阵相乘
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[未完待续...]

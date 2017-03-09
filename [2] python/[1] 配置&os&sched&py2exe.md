@@ -5,6 +5,7 @@
 	* [自定义安装](#自定义安装)
 	* [pip安装](#pip安装)
 	* [文件安装](#文件安装)
+* [自带函数](#自带函数)
 * [OS库](#os库)
 	* [文件操作](#文件操作)
 		* [os](#os)
@@ -19,16 +20,16 @@
 		* [操作系统相关的调用和操作 import os](#操作系统相关的调用和操作-import-os)
 	* [文件操作](#文件操作-1)
 	* [regular expression 正则表达式 import re](#regular-expression-正则表达式-import-re)
+* [module](#module)
 * [关于import](#关于import)
-	* [1.](#1)
-	* [2.](#2)
-	* [3.](#3)
+	* [1.import filename1](#1import-filename1)
+	* [2.from filename1 import def1](#2from-filename1-import-def1)
+	* [3.from filename1 import *](#3from-filename1-import)
 	* [4.](#4)
 	* [5.](#5)
 * [包（多层）](#包多层)
 
 <!-- tocstop -->
-
 
 
 
@@ -62,7 +63,17 @@ pip（在线配置）
 1. pip
 2. 自定义
 3. 文件安装
+
 ------
+
+# 自带函数
+dir()打印对象的功能
+help()帮助
+
+
+
+
+
 # OS库
 ## 文件操作
 ### os
@@ -76,6 +87,37 @@ os.mkdir(path)#新建目录，新建文件
 os.removedirs(path)#逐级删除多个目录（只能删除空目录）
 os.rmdir(name)#删除目录，删除文件
 os.rename(oldname,newname)#更改文件名，也可以用来移动到其它文件夹
+```
+
+案例：写入文件
+```python
+content='''我是文件的内容
+是文件的
+内容呢
+待会据说要把我写进去。。
+'''
+file = open(r"py1.txt",'w')
+file.write(content)
+file.close()
+```
+
+案例：读文件
+```python
+fr = open(r"py1.txt")
+while True:
+    line = fr.readline()
+    if len(line) == 0:
+        break
+    print line
+    fr.close
+```
+
+案例：读文件：
+```python
+fr = open(r"E:\temp\newdir\py1.txt",'r')
+for u in fr:
+    print u
+fr.close()
 ```
 其它（不实用）
 ```
@@ -143,6 +185,7 @@ print(time.time())
 # 常用内置函数
 ## 1.常用内置函数：(不用import就可以直接使用)  
 
+```
     help(obj) 在线帮助, obj可是任何类型
     callable(obj) 查看一个obj是不是可以像函数一样调用
     repr(obj) 得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝
@@ -158,8 +201,10 @@ print(time.time())
     type(obj) 查看一个obj的类型
     isinstance(obj,cls) 查看obj是不是cls的instance
     issubclass(subcls,supcls) 查看subcls是不是supcls的子类
+```
 
-  类型转换函数
+类型转换函数
+```
     chr(i) 把一个ASCII数值,变成字符
     ord(i) 把一个字符或者unicode字符,变成ASCII数值
     oct(x) 把整数x变成八进制表示的字符串
@@ -174,6 +219,8 @@ print(time.time())
     complex(x) 转换成复数
     max(...) 求最大值
     min(...) 求最小值
+```
+
   用于执行程序的内置函数
     complie 如果一段代码经常要使用,那么先编译,再运行会更快。
 
@@ -354,32 +401,40 @@ print(time.time())
           MULTILINE, M 多行模式，只影响^和$(参见上例)
           VERBOSE, X verbose模式
 ```
+
+# module
+
+
 # 关于import
 - import 时，会把整个file运行一遍
 - 多次import同一个模块时，只运行一次
 - run 某个file时候，class里的print会运行一遍
-## 1.
-import filename1
+
+## 1.import filename1
+
 引用时，用
-```
+```python
 filename1.def1
 filename1.class1
 ```
-## 2.
+
+## 2.from filename1 import def1
 ```
 from filename1 import def1
 from filename1 import class1
 from filename1 import 变量1
 ```
 引用时，直接用def1等等
-## 3.
+
+## 3.from filename1 import *
 ```
 from filename1 import *
 #把所有的对象全部导入
 #如果filename1里有__all__ = [ 'bar', 'spam' ] 那么只导入__all__
 ```
+
 ## 4.
-```
+```python
 #检查是单独执行还是被导入
 if __name__ == '__main__':
       # Yes
