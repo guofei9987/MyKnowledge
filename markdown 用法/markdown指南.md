@@ -1,19 +1,16 @@
 
-一个table生成工具：
+# 一个table生成工具：
 http://tableizer.journalistopia.com/
 
-# Cmd Markdown 简明语法手册
 
 
 下面是分割线
 ---
 
 ### 1. 斜体和粗体
- 可以使用*斜体*，也可以使用**粗体**，或者使用删除线，例如~~这是一段错误的文本。~~
-
+ 可以使用*斜体*，也可以使用**粗体**，或者使用~~删除线~~
 
 ### 2. 分级标题
-
 
 你也可以选择在行首加井号表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4。
 
@@ -83,24 +80,6 @@ http://tableizer.journalistopia.com/
 > 请保留此份使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file">**新文稿**</i> ，或者使用快捷键 `Ctrl+Alt+N`。
 
 
-# Cmd Markdown 高阶语法手册
-
-### 1. 内容目录
-
-在段落中填写 `[TOC]` 以显示全文内容的目录结构。
-
-[TOC]
-
-### 2. 标签分类
-
-在编辑区任意行的列首位置输入以下代码给文稿标签：
-
-标签： 数学 英语 Markdown
-
-或者
-
-Tags： 数学 英语 Markdown
-
 
 ### 4. 注脚
 
@@ -112,164 +91,19 @@ Tags： 数学 英语 Markdown
 
 ### 5. LaTeX 公式
 
-$ 表示行内公式：
+传送门：[latex](latex.md)
 
-质能守恒方程可以用一个很简洁的方程式 $E=mc^2$ 来表达。
-
-$$ 表示整行公式：
-
-$$\sum_{i=1}^n a_i=0$$
-
-$$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$
-
-$$\sum^{j-1}_{k=0}{\widehat {\gamma}_{kj} z_k}$$
-
-访问 [MathJax](http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference) 参考更多使用方法。
-
-### 6. 加强的代码块
-
-支持四十一种编程语言的语法高亮的显示，行号显示。
-
-非代码示例：
-
-```
-$ sudo apt-get install vim-gnome
-```
-
-Python 示例：
+### 6. 高亮一段代码[^code]
 
 ```python
 @requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-
 class SomeClass:
     pass
 
->>> message = '''interpreter
-... prompt'''
+if __name__ == '__main__':
+    # A comment
+    print 'hello world'
 ```
-
-JavaScript 示例：
-
-``` javascript
-/**
-* nth element in the fibonacci series.
-* @param n >= 0
-* @return the nth element, >= 0.
-*/
-function fib(n) {
-  var a = 1, b = 1;
-  var tmp;
-  while (--n >= 0) {
-    tmp = a;
-    a += b;
-    b = tmp;
-  }
-  return a;
-}
-
-document.write(fib(10));
-```
-
-### 7. 流程图
-
-#### 示例
-
-```flow
-st=>start: Start:>https://www.zybuluo.com
-io=>inputoutput: verification
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-sub=>subroutine: Your Subroutine
-e=>end
-
-st->io->op->cond
-cond(yes)->e
-cond(no)->sub->io
-```
-
-#### 更多语法参考：[流程图语法参考](http://adrai.github.io/flowchart.js/)
-
-### 8. 序列图
-
-#### 示例 1
-
-```seq
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
-
-#### 示例 2
-
-```seq
-Title: Here is a title
-A->B: Normal line
-B-->C: Dashed line
-C->>D: Open arrow
-D-->>A: Dashed open arrow
-```
-
-#### 更多语法参考：[序列图语法参考](http://bramp.github.io/js-sequence-diagrams/)
-
-### 9. 甘特图
-
-甘特图内在思想简单。基本是一条线条图，横轴表示时间，纵轴表示活动（项目），线条表示在整个期间上计划和实际的活动完成情况。它直观地表明任务计划在什么时候进行，及实际进展与计划要求的对比。
-
-```gantt
-    title 项目开发流程
-    section 项目确定
-        需求分析       :a1, 2016-06-22, 3d
-        可行性报告     :after a1, 5d
-        概念验证       : 5d
-    section 项目实施
-        概要设计      :2016-07-05  , 5d
-        详细设计      :2016-07-08, 10d
-        编码          :2016-07-15, 10d
-        测试          :2016-07-22, 5d
-    section 发布验收
-        发布: 2d
-        验收: 3d
-```
-
-#### 更多语法参考：[甘特图语法参考](https://knsv.github.io/mermaid/#gant-diagrams)
-
-### 10. Mermaid 流程图
-```{mermaid id:"izzemxmc"}
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-
-
-
-```{mermaid id:"izzemxmd"}
-graph LR
-    A[Hard edge] -->|Link text| B(Round edge)
-    B --> C{Decision}
-    C -->|One| D[Result one]
-    C -->|Two| E[Result two]
-```
-
-#### 更多语法参考：[Mermaid 流程图语法参考](https://knsv.github.io/mermaid/#flowcharts-basic-syntax)
-
-### 11. Mermaid 序列图
-
-```sequence
-    Alice->John: Hello John, how are you?
-    loop every minute
-        John-->Alice: Great!
-    end
-```
-
-#### 更多语法参考：[Mermaid 序列图语法参考](https://knsv.github.io/mermaid/#sequence-diagrams)
 
 ### 12. 表格支持
 
@@ -290,6 +124,7 @@ graph LR
 
         代码块（左侧有八个不可见的空格）
 
+
 ### 14. Html 标签
 
 <table>
@@ -306,53 +141,38 @@ graph LR
     </tr>
 </table>
 
-### 15. 内嵌图标
 
-本站的图标系统对外开放，在文档中输入
-
-    <i class="icon-weibo"></i>
-
-即显示微博的图标： <i class="icon-weibo icon-2x"></i>
-
-替换 上述 `i 标签` 内的 `icon-weibo` 以显示不同的图标，例如：
-
-    <i class="icon-renren"></i>
-
-即显示人人的图标： <i class="icon-renren icon-2x"></i>
-
-更多的图标和玩法可以参看 [font-awesome](http://fortawesome.github.io/Font-Awesome/3.2.1/icons/) 官方网站。
 
 ### 16. 待办事宜 Todo 列表
 
-使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法，例如：
+使用带有 [ ] 或 [x] （未完成或已完成）项的列表语法撰写一个待办事宜列表，并且支持子列表嵌套以及混用Markdown语法
 
-    - [ ] **Cmd Markdown 开发**
-        - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-        - [ ] 支持以 PDF 格式导出文稿
-        - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
-        - [x] 改进 LaTex 功能
-            - [x] 修复 LaTex 公式渲染问题
-            - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-    - [ ] **七月旅行准备**
-        - [ ] 准备邮轮上需要携带的物品
-        - [ ] 浏览日本免税店的物品
-        - [x] 购买蓝宝石公主号七月一日的船票
-
-对应显示如下待办事宜 Todo 列表：
-
-- [ ] **Cmd Markdown 开发**
-    - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-    - [ ] 支持以 PDF 格式导出文稿
-    - [x] 新增Todo列表功能 [语法参考](https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments)
-    - [x] 改进 LaTex 功能
-        - [x] 修复 LaTex 公式渲染问题
-        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-- [ ] **七月旅行准备**
-    - [ ] 准备邮轮上需要携带的物品
-    - [ ] 浏览日本免税店的物品
-    - [x] 购买蓝宝石公主号七月一日的船票
+### 内置图标
+<i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享
+<i class="icon-file"></i> 新建：开始撰写一篇新的文稿
+<i class="icon-trash"></i> 删除：删除当前的文稿
+<i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地
+<i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作
+<i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式
+<i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落
+<i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置
+<i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 **黑色主题**，超炫！
+<i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验
+<i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境
 
 
 [^footnote]: 这是一个 *注脚* 的 **文本**。
 
 [^footnote2]: 这是另一个 *注脚* 的 **文本**。
+
+
+
+[^LaTeX]: 支持 **LaTeX** 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
+
+
+[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，**四十一**种主流编程语言。
+
+
+[1]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown
+[2]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册
+[4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
