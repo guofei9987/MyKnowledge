@@ -4,6 +4,8 @@ $\leq$
 $<$
 $>$
 $\neq$
+$\thicksim$
+$\thickapprox$
 $\dbinom{n}{k}$  $\binom{n}{k}$
 ![64ac3ab149f74c7fe5e3e&690](/assets/64ac3ab149f74c7fe5e3e&690.png)
 
