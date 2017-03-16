@@ -6,8 +6,8 @@ clear
 clc
 close all
 
- data=random('unif',0,1,3000,2);
- label1=(((data(:,1)-0.25).^2+(data(:,2)-0.25).^2)<0.1^2);
+data=random('unif',0,1,3000,2);
+label1=(((data(:,1)-0.25).^2+(data(:,2)-0.25).^2)<0.1^2);
 label2=(((data(:,1)-0.75).^2+(data(:,2)-0.75).^2)<0.1^2);
 label=label1|label2
 % data=random('unif',0,5,3000,2);
@@ -78,13 +78,8 @@ while count<maxcount
             for i=1:num_per_layer(layer_ind-1)
                 for j=1:num_per_layer(layer_ind)
                     w{layer_ind}(i,j)=w{layer_ind}(i,j)+delta_w{layer_ind}(j)*v{layer_ind-1}(i);
-                    
-                    
-                    
                 end
             end
-            
-            
         end
         
     end
