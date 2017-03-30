@@ -6,7 +6,7 @@
 - $w_{ii}=0$(每个神经元到自己的连接权值为0)
 
 ## Hopfield的神经元
-$s_j=\sum\limits_{i=1}^{n}x_i w_{ij}-\theta_j$
+$s_j=\sum\limits_{i=1}^{n}x_i w_{ij}+b_j$
 $x_j=f(s_j)=sgn(s_j)=\left \{ \begin{array}{ccc}
 1&  &s_j>0\\
 -1& &s_j<=0
@@ -43,7 +43,7 @@ $x_j(t+1)=f(s_j(t)) \ \ \    for \ all\  j$
 
 ## 能量函数
 定义
-$E=-\dfrac{1}{2} \sum\limits_{i=1}^n \sum\limits_{j=1}^n w_{ij}x_i x_j+\sum\limits_{i=1}^n \theta_i x_i$
+$E=-\dfrac{1}{2} \sum\limits_{i=1}^n \sum\limits_{j=1}^n w_{ij}x_i x_j - \sum\limits_{i=1}^n b_i x_i$
 
 
 
@@ -54,7 +54,6 @@ TH：如果：
 - 连接矩阵主对角线上的值为0
 
 那么：
-
 总有$\Delta E \leq 0$
 也就是说，对于任意一个初态，系统收敛到某个吸引子
 
@@ -65,6 +64,12 @@ TH:如果：
 - 连接矩阵非负定矩阵
 那么，对于任意一个初态，系统收敛到某个吸引子
 
+```
+对于w=[[0,1],[1,0]],Y(0)=[[1],[0]]
+串行收敛到稳态
+并行收敛到有限环
+这是因为W不是 非负定的
+```
 Def：
 
 吸引子
@@ -82,12 +87,37 @@ Def：
 
 
 
+## 学习法
+
+### 外积法(Outer Product Method)
+
+假设有K个吸引子：$C^k=[c_1^k,c_2^k,...,c_N^k]$
+那么$w_{ij}=
+\left \{ \begin{array}{ccc}
+\dfrac{1}{a}\sum\limits_{k=1}^K c_i^k c_j^k && i \neq j \\
+0 && i=j
+\end{array}\right.$
+a是调节比例，一般a=1/N
+
+- 写成矩阵：
+$w=\dfrac{1}{N}(\sum\limits_{k=1}^K C^k (C^k)^T - KI)$
+
+外积法，要求输入模式是相互正交的，否则必须满足一定条件下才能正确联想
+
+### 投影学习法(Production Learning Method)
+### 伪逆法(Pseudo Inverse Method)
+
+$w=X(Y^T Y)^{-1} Y^T$
+
+### 特征结构法(Eigen Structure Method)
 
 
+## 关于记忆量
+Hopfield通过大量实验，确定$K \thickapprox 0.15N $
+一些学者认为，$K \leq \dfrac{N}{2 \log N}$
 
-
-
-
+- 伪状态(Spurious State)
+稳定状态，但不是设计者所需要的。减少伪状态，是改进Hopfield网络的一个方向
 
 
 
