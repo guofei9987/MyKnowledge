@@ -50,7 +50,9 @@
 - use like "python file2tree.py -r d:/tree"
 - or use like "python file2tree.py --rootdir d:/tree"
 
-
+尚存bug：
+- 中文有时会报错
+- 文件名或文件目录中有空格时，会报错
 
 
 ## [2] 重复文件检索工具
