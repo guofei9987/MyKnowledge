@@ -1,4 +1,5 @@
-# UML图
+
+# UML
 类的继承：空心箭头
 组合关系：实心菱形，在constructor中，把每个属性定义为其它的类
 聚集关系：空心菱形，不在constructor中定义
@@ -12,18 +13,20 @@ Access
 SetAccess
 GetAccess
 
+
 # 基本篇
 
-查询属性和方法:
->t=timer
+## 查询属性和方法
+```
+t=timer
 properties(t)
 methods(t)
 events(t)
 superclasses(t)
+whos%查询当前变量
+```
 
-查询当前变量:
->whos
-
+## class的一般用法示例
 ```
 classdef Point2D<handle
     properties
@@ -43,24 +46,26 @@ classdef Point2D<handle
     end
 end
 ```
-关于property：
-1.直接赋值
+
+## 关于property：
+1. 直接赋值
 k=Point2D(2,3)
 k.x=555
 
-2.默认值
+2. 默认值
 
 ??????
 ??????
 ??????
 
 
-3.常量属性
+3. 常量属性
+```matlab
 properties(Constant)
-
+```
 输入A.R%这里A是类，而不是对象
 
-4.dependent属性
+4. dependent属性
 ```
 properties(Dependent)
 ```
@@ -72,39 +77,61 @@ function r=get.r(obj)
 ```
 function string=get.text(obj)
 ```
-5、Hidden属性
+5. Hidden属性
+```
 properties(Hidden)
+```
 隐藏后如果用户知道属性名，仍然可以访问该属性.
 
-6、private属性（只有该类可访问）
+6. private属性（只有该类可访问）
+```
 properties(Access=private)
+```
 
-7、protected属性（该类和之类可访问）
+7. protected属性（该类和之类可访问）
+```
 properties(Access=protected)
-
-8、public属性
+```
+8. public属性
 默认的属性
 
 # 关于methods
-## methods中的function可以放到一个独立的文件中，在methods中仅给出声明normalize(obj)
+
+methods中的function可以放到一个独立的文件中，在methods中仅给出声明
+```
+normalize(obj)
+```
 但以下不能这么做，必须在类中给出实现细节：
+```
 Constructor，Destructor，static
+```
+
 ## 调用methods
-表达式1、obj.memberFunction(arg1,arg2)
-表达式2、memberFunction(obj,arg1,arg2)
+
+```
+obj.memberFunction(arg1,arg2)
+memberFunction(obj,arg1,arg2)
+```
+
 以上两个表达式等价，但表达式2非常不建议使用
+
 ## 任何methods都不隶属于对象
+```
 p1=Point2D(1,1)
 p2=Point3D(1,1,1)
 normalize(p1)和normalize(p2)分别调用不同的methods
+```
 
 在调用methods时，Dispathcer会动态判断methods的signature，signature=函数名+所属类。
-## 3
+
+### 判断x是否是某个类型
+```
 isa(x,'Point2D')
-判断x是否是某个类型
+```
 
 
-类的继承
+## 类的继承
+
 
 # 3、Value Class 和 Handle Class
 Value Class赋值后，不产生副本，但修改后自动产生副本

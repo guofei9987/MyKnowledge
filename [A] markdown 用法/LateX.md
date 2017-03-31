@@ -7,13 +7,13 @@ $\neq$
 $\thicksim$
 $\thickapprox$
 $\dbinom{n}{k}$  $\binom{n}{k}$
-![64ac3ab149f74c7fe5e3e&690](/assets/64ac3ab149f74c7fe5e3e&690.png)
+
 
 $\forall$  $\exists$
 
 ## 二元运算符
 
-![64ac3ab149f74c7d82f65&690](/assets/64ac3ab149f74c7d82f65&690.png)
+
 $\pm$
 $\cup$
 $\cap$
@@ -36,23 +36,7 @@ bar$\bar{a}$|vec$\vec{a}$|widehat|tilde
 - $\int_{0}^{n}$
 - $\prod_\epsilon$
 
-1
-![64ac3ab149f74c7d23647&690](/assets/64ac3ab149f74c7d23647&690_rfk2ugq7r.png)
-2
-![64ac3ab149f74c7e8dd1c&690](/assets/64ac3ab149f74c7e8dd1c&690_otqi1odfp.png)
-3
-![64ac3ab149f74c7ea3a42&690](/assets/64ac3ab149f74c7ea3a42&690_b54n30h8a.png)
 
-4
-![64ac3ab149f74c7edd0cf&690](/assets/64ac3ab149f74c7edd0cf&690.png)
-5
-![64ac3ab149f74c7f1ecc6&690](/assets/64ac3ab149f74c7f1ecc6&690.png)
-6
-![64ac3ab149f74c7f95813&690](/assets/64ac3ab149f74c7f95813&690.png)
-7
-
-8
-![64ac3ab149f74c7feb4f9&690](/assets/64ac3ab149f74c7feb4f9&690.png)
 9. 特殊字体
 
 | | |
@@ -65,7 +49,7 @@ $\mathcal{ABCdef}$ |mathcal
 $\mathfrak{ABCdef}$|mathfrak
 $\mathbb{ABCdef}$|mathbb
 
-![64ac3ab149f74c8136f37&690](/assets/64ac3ab149f74c8136f37&690.png)
+
 
 
 
@@ -95,6 +79,27 @@ $\mathbb{ABCdef}$|mathbb
 
 ## 分数
 - $\frac{a_1}{b_1}$
+
+
+![0.2672936380840838](/assets/0.2672936380840838.png)
+
+
+![0.826329062692821](/assets/0.826329062692821.png)
+
+
+![0.7370366379618645](/assets/0.7370366379618645.png)
+
+![0.8894461151212454](/assets/0.8894461151212454.png)
+
+![0.8961318030487746](/assets/0.8961318030487746.png)
+
+
+![0.21326882159337401](/assets/0.21326882159337401.png)
+
+
+![0.26506704674102366](/assets/0.26506704674102366.png)
+
+
 
 
 

@@ -101,7 +101,7 @@ a.shape=3,-1
 
 ### reshape
 - reshape与shape的区别是，reshape保持原数组维度不变
-- 然而，内存是共享的
+- 相同点是，内存是共享的
 
 ```python
 a=numpy.array([[1,2,3],[4,5,6]])
@@ -133,7 +133,7 @@ set(numpy.typeDict.values())
 # numpy.sin
 
 # 运算符
-以下x1,x2都是array，对对应元素进行操作：
+以下x1,x2是相同shape的array，效果是对应元素进行操作：
 ```python
 x1+x2
 x1-x2
@@ -144,7 +144,7 @@ x1%x2
 x1**x2
 ```
 
-对每个
+下面是对每个元素乘方
 ```python
 x1**2#可以是一个数字，也可以是只有一个元素的array
 x1*numpy.array([2])#同理
@@ -168,7 +168,9 @@ np.linalg.inv(a)#取逆
 a**2#矩阵相乘
 ```
 
+# ufunc运算
 
+numpy.sin()
 
 
 
