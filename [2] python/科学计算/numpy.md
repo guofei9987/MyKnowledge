@@ -62,6 +62,7 @@ b=a[[1,2,3]]
 a=numpy.arange(1,10,1)
 b=a[numpy.array([1,4,1])]
 ```
+
 - 布尔取数：不共享内存
 ```python
 a=numpy.arange(0,5,1)
@@ -130,7 +131,7 @@ a=numpy.array([1,2,3,4],dtype=numpy.complex)#指定元素类型
 set(numpy.typeDict.values())
 ```
 
-# numpy.sin
+
 
 # 运算符
 以下x1,x2是相同shape的array，效果是对应元素进行操作：
@@ -150,6 +151,96 @@ x1**2#可以是一个数字，也可以是只有一个元素的array
 x1*numpy.array([2])#同理
 ```
 
+# 多维数组
+
+## 取数
+(共享内存)
+### slice
+
+```python
+import numpy as np
+a=np.arrange(0,60,10).reshape(-1,1)+np.arrange(0,5)
+# 加法表，可以生成一个多维array
+a[0,3:5]#算头不算尾
+a[3:5,1]# 反而生成的是一行的array
+
+```
+
+
+下标元组
+```python
+idx=slice(None,None,2),slice(None,None,2)
+a[idx]
+#等价于a[::2,::2]
+```
+
+### 其它取数方式
+这些都不共享内存
+
+- list
+两个list的效果是取出对应的几个元素，而不是取所在的行、列
+```
+import numpy as np
+a=np.arange(0,60,10).reshape(-1,1)+np.arange(0,5)
+b=a[[0,1,2],[1,2,3]]
+```
+效果是取出3个数,第0个list是第0轴，第1个list是第1轴
+
+- 数字+slice，list+slice
+
+在多维数组中，slice和list结合取数不共享内存。但是slice和数字结合取数共享内存
+```python
+import numpy as np
+a=np.arange(0,60,10).reshape(-1,1)+np.arange(0,5)
+b=a[2:,[3,1]]#不共享内存
+b=a[2:,3]#共享内存
+```
+
+- bool+数字
+- bool+bool
+- bool+list
+- bool+slice
+
+总结为表格：
+||slice |list&array&bool|num|多维list&多维array|
+|--|--|--|--|--|
+slice|Y|N|Y|
+list&array&bool|N|只取单数|返回1行n列的array|
+num|Y|返回1行n列的array|返回一个数字
+
+- 另外，如果省略了一个维度，省略部分默认为`:`全部切片
+
+# 结构体数组
+
+## 生成
+```python
+import numpy as np
+persontype=np.dtype({'names':['name','age','weight'],
+                    'formats':['S32','i','f']})
+a=np.array([('zhang',32,75.5),('wang',24,65.2)],dtype=persontype)
+```
+|||
+|--|--|
+S32|长度为32字节的字符串类型
+i  |相当于np.int32
+f  | 相当于np.float
+
+## dtype
+
+```python
+a.dtype
+```
+返回：dtype([('name', 'S32'), ('age', '<i4'), ('weight', '<f4')])
+*tuple里面可能有第三个元素，例如(2,3),意思是多维数组*
+- |忽略字节顺序
+- <低位字节在前
+- \>高位字节在前
+
+## 写入文件
+```
+a.tostring()
+a.tofile('test.bin')
+```
 # matrix
 
 ## 生成
@@ -159,6 +250,7 @@ import numpy as np
 a = np.matrix([[1, 2, 3], [5, 5, 6]])
 a.shape=3,2
 ```
+
 
 ## 运算
 ```python
@@ -171,7 +263,6 @@ a**2#矩阵相乘
 # ufunc运算
 
 numpy.sin()
-
 
 
 
