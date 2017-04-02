@@ -5,6 +5,10 @@
 	* [自定义安装](#自定义安装)
 	* [pip安装](#pip安装)
 	* [文件安装](#文件安装)
+	* [conda下载](#conda下载)
+	* [清华镜像](#清华镜像)
+	* [CMD中(pip也可以安装本地的zip)](#cmd中pip也可以安装本地的zip)
+	* [setup.py](#setuppy)
 * [自带函数](#自带函数)
 * [OS库](#os库)
 	* [文件操作](#文件操作)
@@ -58,6 +62,20 @@ pip（在线配置）
 - search通过PyPi搜索，在库名和摘要中检索
     - pip search [关键字]
 - help 帮助
+
+## conda下载
+conda install pandas
+
+## 清华镜像
+清华镜像站点下载
+https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+
+## CMD中(pip也可以安装本地的zip)
+- CD到zip所在文件夹
+- pip install jieba-master.zip
+
+## setup.py
+
 
 优先级：
 1. pip

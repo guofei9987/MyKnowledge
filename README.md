@@ -49,6 +49,7 @@
 在CMD中输入：
 - use like "python file2tree.py -r d:/tree"
 - or use like "python file2tree.py --rootdir d:/tree"
+- 改为在C:\\生成txt，程序运行完之后自动打开
 
 尚存bug：
 - 中文有时会报错
