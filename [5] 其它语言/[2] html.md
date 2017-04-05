@@ -2,7 +2,7 @@
 HTML是一种标记语言
 
 # 文档结构标记
-```
+```html
 <DOCTYPE html>
 <html></html>
 <head></head>放置HTML文件信息，如<title>,CSS样式代码
