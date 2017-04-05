@@ -150,6 +150,33 @@ x1**x2
 x1**2#可以是一个数字，也可以是只有一个元素的array
 x1*numpy.array([2])#同理
 ```
+# 布尔运算符
+
+- 布尔运算符是ufunc函数
+- 返回dtype=bool的array
+
+```python
+x==y
+x!=y
+x<y
+x<=y
+x>y
+x>=y
+```
+
+- 布尔运算：
+```python
+$
+~
+|
+^
+```
+注意：
+- 实际上`$~|^`是按位运算符，因为与array.dtype=bool的情况下，与逻辑运算完全相同，所以可以这么用
+- and和or等逻辑运算符不能直接对array使用，因为他们只能用于True/False
+
+- np.any(a==b) and np.all(a>b)
+
 
 # 多维数组
 
@@ -202,7 +229,7 @@ b=a[2:,3]#共享内存
 - bool+slice
 
 总结为表格：
-||slice |list&array&bool|num|多维list&多维array|
+|是否共享内存|slice |list&array&bool|num|多维list&多维array|
 |--|--|--|--|--|
 slice|Y|N|Y|
 list&array&bool|N|只取单数|返回1行n列的array|
@@ -215,8 +242,9 @@ num|Y|返回1行n列的array|返回一个数字
 ## 生成
 ```python
 import numpy as np
-persontype=np.dtype({'names':['name','age','weight'],
-                    'formats':['S32','i','f']})
+persontype=np.dtype({'names':['name','age','weight'],'formats':['S32','i','f']})
+#或者这样
+#persontype=np.dtype([('name','S32'),('age','i'),('weight','f')])
 a=np.array([('zhang',32,75.5),('wang',24,65.2)],dtype=persontype)
 ```
 |||
@@ -225,12 +253,17 @@ S32|长度为32字节的字符串类型
 i  |相当于np.int32
 f  | 相当于np.float
 
+结构体可以嵌套，这时dtype
+## 取数
+```
+b=a[0]['name']
+```
 ## dtype
 
 ```python
 a.dtype
 ```
-返回：dtype([('name', 'S32'), ('age', '<i4'), ('weight', '<f4')])
+返回：dtype([('name', 'S32'), ('age', '<i4'), ('weight', '<f4'，(2,3))])
 *tuple里面可能有第三个元素，例如(2,3),意思是多维数组*
 - |忽略字节顺序
 - <低位字节在前
@@ -241,6 +274,9 @@ a.dtype
 a.tostring()
 a.tofile('test.bin')
 ```
+
+可以用C语言读取结构体
+
 # matrix
 
 ## 生成
@@ -263,8 +299,12 @@ a**2#矩阵相乘
 # ufunc运算
 
 numpy.sin()
+```
+numpy.sin(x,out=y)
+```
+矢量化运算很快，但在循环中每次运算1个，还是math.sin快
 
-
+## 自己构建ufunc
 
 
 
