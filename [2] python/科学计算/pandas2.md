@@ -49,14 +49,29 @@ a=data.fillna(method='bfill',inplace=True)#bfill,ffill,
 a=data.fillna(data.mean(),inplace=True)
 ```
 
-# index
+# index和字段修改
 
+## 1. 用赋值法修改
 
-data.index可以直接赋值，也可以用map，案例：
+data.index可以直接赋值为Series或list
+data.columns可以直接赋值为Series或list
+
+index有map()方法，但没有apply方法，案例：
 ```python
 import pandas as pd
 data = pd.DataFrame(np.arange(12).reshape((3, 4)),index=['Ohio', 'Colorado', 'New York'],columns=['one', 'two', 'three', 'four'])
 data.index=data.index.map(str.upper)
+```
+
+## 2.用rename修改index和Seris
+
+```python
+data.rename(index={'Ohio': 'INDIANA'},columns={'three': 'peekaboo'},inplace=True)
+```
+
+修改为首字母大写，大写
+```python
+data.rename(index=str.title, columns=str.upper, inplace=True)
 ```
 
 
@@ -82,3 +97,105 @@ def func1(series):
     #series的类型是Series，其内容是DataFrame的一行，
     #return内容就是data.apply这个series中的元素
 ```
+
+# 列筛选（bool类型）
+以下可以取得bool类型的Series，然后用来列筛选，这些Series可以相互之间做bool运算
+## 1.符号
+`== != < >  <=   >=`
+## 2. isin
+
+```python
+df2['E'].isin(['two','four'])#返回的是bool类型的Series，因此可以做bool运算
+#虽然用布尔方法也能达到同样效果，但如果[]太多的话，还是这个方便一些
+```
+## 3. str.contains()
+```python
+df2[df2.ix[:,'E'].str.contains('tw|ou')]#又是一个特殊用法contains，注意参数，有点特殊
+```
+## 4. isnull
+```
+df.isnull
+```
+
+
+
+# groupby
+```python
+df.groupby('key1').max()#生成一个DataFrame，存入分组后每一列的最大值
+```
+
+分组求和
+```python
+df.groupby((df['key1'],df['key2'])).sum()
+```
+groupby后面可以接的方法：
+```
+sum mean median
+count
+```
+
+
+Series后面可以接的方法
+```python
+value_counts()#与groupby.count的区别
+cumsum
+...(自己查)
+```
+
+# 时间序列
+唯一的区别是index是time
+```python
+dates = pd.date_range('20130101',periods=6)
+```
+用以上方法生成时间序列后，可以用index=dates
+
+
+# index
+
+## 互转
+```
+reset_index
+set_index
+```
+
+
+## 下面是时间序列中，填充index
+```python
+idx = pd.date_range('09-01-2013', '09-30-2013')
+
+s = pd.Series({'09-02-2013': 2,
+               '09-03-2013': 10,
+               '09-06-2013': 5,
+               '09-07-2013': 1})
+
+
+#下面扩展
+s.index = pd.DatetimeIndex(s.index)#把原来index从字符串格式str变为时间格式Timestamp
+s = s.reindex(idx, fill_value=np.nan)               
+```
+？？column能不能这么转
+
+## 插一句，还有一种类型转换astype
+```python
+ data["medal"].astype("category")#这样，就把字符型，转换为category型了
+```
+？？参数还可以是其它类型吗
+？？字符格式的时间能不能转成时间格式
+【未完待续】自己查
+
+# 暂时没有学的
+
+df.filter
+
+```
+data.group.groupby(data.group).count()
+```
+
+# join（类似SQL）
+```python
+import pandas as pd
+left = pd.DataFrame({'group': ['a', 'a', 'a', 'b','b', 'b', 'c', 'c','c'],
+                 'ounces': [4, 3, 12, 6, 7.5, 8, 3, 5, 6]})
+right = pd.DataFrame({'label':['a','b','c'],'value':['alpha','beta','charlie']})
+inner_joined = pd.merge(left, right, how='inner', left_on='group', right_on='label')
+```                                        
