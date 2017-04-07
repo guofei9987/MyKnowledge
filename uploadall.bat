@@ -1,6 +1,12 @@
-upload
+start upload
 cd ..
 
 cd plans
-upload
+start upload
 cd ..
+
+cd guofei9987.github.io
+start upload
+cd ..
+
+
