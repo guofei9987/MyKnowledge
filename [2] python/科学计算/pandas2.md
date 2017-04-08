@@ -1,14 +1,12 @@
-```
+```python
 data.describe()
 data.describe(include='all')
 ```
 返回的是DataFrame格式的描述性统计数据
 
-
-
-
+```
 data.info()
-
+```
 
 # sort
 排序
@@ -64,7 +62,7 @@ data.index=data.index.map(str.upper)
 ```
 
 ## 2.用rename修改index和Seris
-
+需要知道修改前的字段和修改后的字段
 ```python
 data.rename(index={'Ohio': 'INDIANA'},columns={'three': 'peekaboo'},inplace=True)
 ```
@@ -166,12 +164,13 @@ idx = pd.date_range('09-01-2013', '09-30-2013')
 s = pd.Series({'09-02-2013': 2,
                '09-03-2013': 10,
                '09-06-2013': 5,
-               '09-07-2013': 1})
+               '09-07-2013': 1})#数据类型是<DatetimeIndex>
 
 
 #下面扩展
 s.index = pd.DatetimeIndex(s.index)#把原来index从字符串格式str变为时间格式Timestamp
-s = s.reindex(idx, fill_value=np.nan)               
+s = s.reindex(idx,fill_value=np.nan)  
+#reindex不限于时间序列，idx还可以是list，这样可以扩展非时间序列的数据             
 ```
 ？？column能不能这么转
 
@@ -194,8 +193,7 @@ data.group.groupby(data.group).count()
 # join（类似SQL）
 ```python
 import pandas as pd
-left = pd.DataFrame({'group': ['a', 'a', 'a', 'b','b', 'b', 'c', 'c','c'],
-                 'ounces': [4, 3, 12, 6, 7.5, 8, 3, 5, 6]})
+left = pd.DataFrame({'group': ['a', 'a', 'a', 'b','b', 'b', 'c', 'c','c'],'ounces': [4, 3, 12, 6, 7.5, 8, 3, 5, 6]})
 right = pd.DataFrame({'label':['a','b','c'],'value':['alpha','beta','charlie']})
 inner_joined = pd.merge(left, right, how='inner', left_on='group', right_on='label')
 ```                                        
