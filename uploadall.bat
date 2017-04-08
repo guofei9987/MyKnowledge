@@ -10,3 +10,6 @@ start upload
 cd ..
 
 
+cd TempCode
+start upload
+cd ..
