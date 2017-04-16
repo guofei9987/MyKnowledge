@@ -1,3 +1,38 @@
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+* [array](#array)
+  * [构造](#构造)
+  * [取数](#取数)
+  * [方法](#方法)
+    * [a.shape](#ashape)
+    * [reshape](#reshape)
+    * [dtype](#dtype)
+* [运算符](#运算符)
+* [布尔运算符](#布尔运算符)
+  * [生成bool](#生成bool)
+  * [bool运算：](#bool运算)
+  * [np.any np.all](#npany-npall)
+* [多维数组](#多维数组)
+  * [取数](#取数-1)
+    * [slice](#slice)
+    * [其它取数方式](#其它取数方式)
+* [结构体数组](#结构体数组)
+  * [生成](#生成)
+  * [取数](#取数-2)
+  * [dtype](#dtype-1)
+  * [写入文件](#写入文件)
+* [matrix](#matrix)
+  * [生成](#生成-1)
+  * [shape](#shape)
+  * [运算](#运算)
+* [ufunc运算](#ufunc运算)
+  * [自己构建ufunc](#自己构建ufunc)
+
+<!-- tocstop -->
+
+
+
 # array
 ## 构造
 - 用list生成
@@ -119,7 +154,7 @@ b.shape=3,-1
 这里a，b的维度都改了
 
 
-# dtype
+### dtype
 ```python
 a.dtype#返回元素类型
 a=numpy.array([1,2,3,4],dtype=numpy.float)#指定元素类型
@@ -155,6 +190,7 @@ x1*numpy.array([2])#同理
 - 布尔运算符是ufunc函数
 - 返回dtype=bool的array
 
+## 生成bool
 ```python
 x==y
 x!=y
@@ -164,7 +200,7 @@ x>y
 x>=y
 ```
 
-- 布尔运算：
+## bool运算：
 ```python
 $
 ~
@@ -172,8 +208,14 @@ $
 ^
 ```
 注意：
-- 实际上`$~|^`是按位运算符，因为与array.dtype=bool的情况下，与逻辑运算完全相同，所以可以这么用
+- 实际上`$~|^`是按位运算符，因为与array.dtype=bool的情况下，与逻辑运算效果完全相同，所以可以这么用
 - and和or等逻辑运算符不能直接对array使用，因为他们只能用于True/False
+- 非bool方式是取反,运算规则与C语言完全相同（有些编程技巧）
+    - dtype=np.int32  `~0=-1`
+    - dtype=np.int8   `~0=255`
+
+
+## np.any np.all 
 
 - np.any(a==b) and np.all(a>b)
 
