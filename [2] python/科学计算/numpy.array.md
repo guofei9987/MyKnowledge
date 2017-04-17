@@ -28,6 +28,8 @@
   * [运算](#运算)
 * [ufunc运算](#ufunc运算)
   * [自己构建ufunc](#自己构建ufunc)
+    * [广播计算](#广播计算)
+    * [reduce()](#reduce)
 
 <!-- tocstop -->
 
@@ -215,7 +217,7 @@ $
     - dtype=np.int8   `~0=255`
 
 
-## np.any np.all 
+## np.any np.all
 
 - np.any(a==b) and np.all(a>b)
 
@@ -348,12 +350,61 @@ numpy.sin(x,out=y)
 
 ## 自己构建ufunc
 
+ufunc函数可以矢量化运算，运算效率很高
 
 
+准备函数和数据：
+```python
+import numpy as np
+#构建函数
+def tri_func(x,a=1,b=0):
+    x=x-int(x)
+    if x<0.3:
+        y=x
+    elif x<0.7:
+        y=0.3
+    else:
+        y=1-x
+    y=a*y+b
+    return y
+x=np.linspace(0,5,100000)
+```
 
+方式1：(指定函数的所有输入都是矢量化)
+```python
+func1=np.frompyfunc(tri_func,3,1)#把函数转为ufunc函数
+#参数分别是func，nin输入参数数量，nout输出参数数量
+y2=func1(x,1,0)
 
+```
 
+方式2：（这时非矢量参数，用tri_func的默认值）
+```python
+func1=np.frompyfunc(tri_func,1,1)
+y2=func1(x)
+```
 
+结果分析：
+```python
+y2.dtyp#=object
+y2=y2.astype(np.float)#转格式
+```
+
+### 广播计算
+
+```python
+def func1(x,y,c=0):
+    return (x-1)**2+(y-1)**2+c
+import numpy as np
+func2=np.frompyfunc(func1,2,1)
+x=np.linspace(0,2,5)
+y=np.linspace(0,2,10).reshape(10,-1)
+func1(x,y)
+```
+意思是，当shape不一致的array进行ufunc运算时，自动用repeat补齐
+
+### reduce()
+只对两个输入、一个输出的ufunc对象有效
 
 
 [未完待续...]
