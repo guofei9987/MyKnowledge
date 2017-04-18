@@ -1,10 +1,14 @@
 import pandas as pd
+import numpy as np
 
-#b=pd.DataFrame({"categories": ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],"data": [5, 20, 36, 10, 10, 20]})
+import time
+for i in range(200):
+    a=np.random.randint(20,200,size=(1,6))
+    b=pd.DataFrame({"categories": [["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]],"data": list(a)},index=['idx'])
+    b.to_json('d.json', orient='index')
+    time.sleep(0.5)
 
-b=pd.DataFrame({"categories": [["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]],"data": [[5, 20, 36, 10, 10, 100]]},index=['idx'])
-print(b)
-b.to_json('d.json',orient='index')
+
 
 #c=pd.read_json('data.json')
 #print(c)
