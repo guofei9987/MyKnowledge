@@ -9,6 +9,7 @@ http://tableizer.journalistopia.com/
 
 ### 1. 斜体和粗体
  可以使用*斜体*，也可以使用**粗体**，或者使用~~删除线~~
+**也可以用_粗斜体_**
 
 ### 2. 分级标题
 
@@ -57,7 +58,7 @@ http://tableizer.journalistopia.com/
 > 4. 撰写发布学术论文（LaTeX 公式支持）
 ### 7. 行内代码块
 
-使用 \`代码` 表示行内代码块。
+使用 \`代码\` 表示行内代码块。
 
 示例：
 
@@ -77,7 +78,8 @@ http://tableizer.journalistopia.com/
 
 ![我的头像](https://www.zybuluo.com/static/img/my_head.jpg)
 
-> 请保留此份使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file">**新文稿**</i> ，或者使用快捷键 `Ctrl+Alt+N`。
+### 10.emoji
+- <i class="icon-file">**新文稿**</i>
 
 
 
