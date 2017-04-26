@@ -17,7 +17,8 @@ $\forall$  $\exists$
 $\pm$
 $\cup$
 $\cap$
-
+点乘：$\centerdot$叉乘：$\times$
+$\pm$ $\mp$
 ## 重音符
 
 |||||
