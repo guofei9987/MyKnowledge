@@ -17,9 +17,11 @@ while i != "":
 print("平均数是{}".format(sum / count))
 ```
 注：用readline()读取下一行
+
 ------
+
 # 编码问题
-```
+```py
 ord("A")#字符转ascii码
 chr(97)#ascii码转字符
 
@@ -30,7 +32,9 @@ bs.decode("utf-8")
 - ascii码 7个二进制位
 - Unicode 每个字符2个字节（4位16进制）
 - UTF-8：可变长度的unicode，英文对应单字节，中文对应3字节
+
 ------
+
 # 文件
 分为文本文件和二进制文件
 ### 文件操作：
