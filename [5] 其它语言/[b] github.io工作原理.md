@@ -7,6 +7,16 @@ index.html是入口
 jsMath
 MathJax
 
+
+
+当然，首先要配置head.html，以支持latex：
+在head中插入这么一句：
+```
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+```
+直接就支持latex了
+
 下面是一个在html中加入latex的方法
 ```
 <script type="math/tex; mode=display">
@@ -17,10 +27,37 @@ MathJax
 </script>
 ```
 
-当然，首先要配置head.html，以支持latex：
-在head中插入这么一句：
+
+# 2
+
+用上面的方法只能用`$$`来表示公式，配置一下，就可以用单`$`了：
+
 ```
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+  inlineMath: [['$','$'], ['\\(','\\)']],
+  processEscapes: true
+  },
+TeX: {
+            equationNumbers: {
+                autoNumber: ["AMS"],
+                useLabelIds: true
+            }
+        },
+        "HTML-CSS": {
+            linebreaks: {
+                automatic: true
+            },
+            scale: 85
+        },
+        SVG: {
+            linebreaks: {
+                automatic: true
+            }
+        }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 ```
-直接就支持latex了
