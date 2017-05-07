@@ -21,15 +21,7 @@
 
 - ctrl+D 选中所在单词（重复按，选相同单词，可以一起改）
 
-# snippets
 
-例如，输入html，然后tab，会生成一系列预设的代码
-
-# git
-
-- 命令：Toggle Git Status Finder：列出更改过得文件（未追踪的）
-
-markdown快捷键用法 <http://blog.csdn.net/u010494080/article/details/53562939>
 
 # minimap
 
