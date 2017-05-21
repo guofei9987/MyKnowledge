@@ -74,7 +74,8 @@ CMD中(pip也可以安装本地的zip)
 - CD到zip所在文件夹
 - pip install jieba-master.zip
 
-或者运行 setup.py
+或者运行 setup.py  
+python setup.py install
 
 
 优先级：
