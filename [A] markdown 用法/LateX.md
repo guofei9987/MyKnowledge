@@ -81,12 +81,8 @@ $\mathbb{ABCdef}$|mathbb
 ## 分数
 - $\frac{a_1}{b_1}$
 
-
-![1](assets/1.png)
-
-
 ![2](assets/2.png)
-
+3:
 ![3](assets/3.png)
 |||
 |--|--|
