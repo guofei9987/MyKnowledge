@@ -1,0 +1,30 @@
+from matplotlib.font_manager import fontManager
+fontManager.ttflist[:6]
+
+import numpy as np
+string=np.array(list('共产党万岁万岁万万岁共产党万岁万岁万万岁共产党万岁万岁万万岁共产党万岁万岁万万岁共产党万岁万岁万万岁共产党万岁万岁万万岁'))
+n,=string.shape
+
+t=np.linspace(0,2*np.pi,n)
+
+def funcx(t):
+    a=1
+    return a*(2*np.cos(t)-np.cos(2*t))
+
+def funcy(t):
+    a=1
+    return a*(2*np.sin(t)-np.sin(2*t))
+    
+x=funcx(t)
+y=funcy(t)
+
+import matplotlib.pyplot as plt
+ax=plt.subplot(111)
+plt.setp(ax,'xticks',[])
+plt.setp(ax,'yticks',[])
+ax.plot(x,y)
+for i,j,k in zip(x,y,string):
+    ax.text(i,j,k,fontname='STKaiti',fontsize=20,color='r',transform=ax.transData)#数据坐标
+
+
+plt.show()
