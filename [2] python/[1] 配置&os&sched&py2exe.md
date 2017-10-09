@@ -204,7 +204,7 @@ print(time.time())
 # 常用内置函数
 ## 1.常用内置函数：(不用import就可以直接使用)  
 
-```
+```py
     help(obj) 在线帮助, obj可是任何类型
     callable(obj) 查看一个obj是不是可以像函数一样调用
     repr(obj) 得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝
@@ -223,7 +223,7 @@ print(time.time())
 ```
 
 类型转换函数
-```
+```py
     chr(i) 把一个ASCII数值,变成字符
     ord(i) 把一个字符或者unicode字符,变成ASCII数值
     oct(x) 把整数x变成八进制表示的字符串
