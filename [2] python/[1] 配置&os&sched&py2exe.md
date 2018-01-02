@@ -90,6 +90,28 @@ dir()打印对象的功能
 help()帮助
 
 
+## open
+```py
+open(path,'w')
+```
+参数：
+- r:  只读
+- w： 只写
+- a： 附加到现有文件，不存在则创建
+- r+： 读写
+- b： 二进制，'rb','wb'
+- U:  通用换行模式，'rU'
+
+
+方法：
+- read([size]): 以字符串返回文件数据，可选读取的字节数
+- readlines([size])
+- write(str): 把str写入文件
+- close()
+- flush():清空I/O缓存，并把数据强行写回磁盘
+- seek(pos):移动到指定的文件位置(证书)
+- tell()：返回当前的文件位置
+- closed():如果文件已经关闭，返回True
 
 
 
@@ -165,7 +187,13 @@ for root,dirs,files in os.walk("D:\py\d1218"):
     pass
 ```
 
-
+### 运行CMD命令
+```py
+import os
+# os.system("ipconfig")
+p=os.popen('ipconfig')
+print(p.read())
+```
 # sched库
 ```
 sched.sceduler()#创建一个调度任务
