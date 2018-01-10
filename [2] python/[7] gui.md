@@ -366,3 +366,25 @@ widget.bind_all(event, handler)
 cvs.move(i,dx,dy)
 ```
 - canvas上的第i个对象移动dx, dy
+
+
+## tkinter
+```
+from tkinter import *
+
+import tkinter.simpledialog as dl
+import tkinter.messagebox as mb
+
+#tkinter GUI Input Output Example
+#设置GUI
+root = Tk()
+w = Label(root, text = "Label Title")
+w.pack()
+
+#欢迎消息
+mb.showinfo("Welcome", "Welcome Message")
+guess = dl.askinteger("Number", "Enter a number")
+
+output = 'This is output message'
+mb.showinfo("Output: ", output)
+```
