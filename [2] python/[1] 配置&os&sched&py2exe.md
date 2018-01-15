@@ -8,18 +8,18 @@
 	* [文件安装](#文件安装)
 * [自带函数](#自带函数)
 * [OS库](#os库)
-	* [文件操作](#文件操作)
-		* [os](#os)
-		* [os.path一个子库](#ospath一个子库)
-		* [os.walk(path)](#oswalkpath)
+	* [os1](#os1)
+	* [os.path一个子库](#ospath一个子库)
+	* [os.walk(path)](#oswalkpath)
+	* [运行CMD命令](#运行cmd命令)
 * [sched库](#sched库)
 * [py2exe](#py2exe)
 * [常用内置函数](#常用内置函数)
 	* [1.常用内置函数：(不用import就可以直接使用)](#1常用内置函数不用import就可以直接使用)
 	* [2.和操作系统相关的调用](#2和操作系统相关的调用)
-		* [系统相关的信息模块 import sys](#系统相关的信息模块-import-sys)
+		* [sys](#sys)
+		* [观察引用计数的小程序](#观察引用计数的小程序)
 		* [操作系统相关的调用和操作 import os](#操作系统相关的调用和操作-import-os)
-	* [文件操作](#文件操作-1)
 	* [regular expression 正则表达式 import re](#regular-expression-正则表达式-import-re)
 * [module](#module)
 * [关于import](#关于import)
@@ -90,34 +90,13 @@ dir()打印对象的功能
 help()帮助
 
 
-## open
-```py
-open(path,'w')
-```
-参数：
-- r:  只读
-- w： 只写
-- a： 附加到现有文件，不存在则创建
-- r+： 读写
-- b： 二进制，'rb','wb'
-- U:  通用换行模式，'rU'
 
-
-方法：
-- read([size]): 以字符串返回文件数据，可选读取的字节数
-- readlines([size])
-- write(str): 把str写入文件
-- close()
-- flush():清空I/O缓存，并把数据强行写回磁盘
-- seek(pos):移动到指定的文件位置(证书)
-- tell()：返回当前的文件位置
-- closed():如果文件已经关闭，返回True
 
 
 
 # OS库
-## 文件操作
-### os
+
+## os1
 ```python
 os.getcwd()#获得当前工作目录
 os.chdir(path)#把path设定为当前目录
@@ -130,43 +109,13 @@ os.rmdir(name)#删除目录，删除文件
 os.rename(oldname,newname)#更改文件名，也可以用来移动到其它文件夹
 ```
 
-案例：写入文件
-```python
-content='''我是文件的内容
-是文件的
-内容呢
-待会据说要把我写进去。。
-'''
-file = open(r"py1.txt",'w')
-file.write(content)
-file.close()
-```
 
-案例：读文件
-```python
-fr = open(r"py1.txt")
-while True:
-    line = fr.readline()
-    if len(line) == 0:
-        break
-    print line
-    fr.close
-```
-
-案例：读文件：
-```python
-fr = open(r"E:\temp\newdir\py1.txt",'r')
-for u in fr:
-    print u
-fr.close()
-```
-其它（不实用）
 ```
 os.remove()#删除一个文件夹，不能删除文件
 
 ```
 
-### os.path一个子库
+## os.path一个子库
 ```python
 os.path.isfile(path)#检验path是否是一个文件，exists为false，也会返回false
 os.path.isdir(path)#检验path是否是一个路径
@@ -181,19 +130,20 @@ os.path.join(path,name)#把path和name合成
 os.path.getsize(path)#返回文件大小
 ```
 
-### os.walk(path)
+## os.walk(path)
 ```
 for root,dirs,files in os.walk("D:\py\d1218"):
     pass
 ```
 
-### 运行CMD命令
+## 运行CMD命令
 ```py
 import os
 # os.system("ipconfig")
 p=os.popen('ipconfig')
 print(p.read())
 ```
+
 # sched库
 ```
 sched.sceduler()#创建一个调度任务
@@ -233,46 +183,30 @@ print(time.time())
 ## 1.常用内置函数：(不用import就可以直接使用)  
 
 ```py
-    help(obj) 在线帮助, obj可是任何类型
-    callable(obj) 查看一个obj是不是可以像函数一样调用
-    repr(obj) 得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝
-    eval_r(str) 表示合法的python表达式，返回这个表达式
-    dir(obj) 查看obj的name space中可见的name
-    hasattr(obj,name) 查看一个obj的name space中是否有name
-    getattr(obj,name) 得到一个obj的name space中的一个name
-    setattr(obj,name,value) 为一个obj的name space中的一个name指向vale这个object
-    delattr(obj,name) 从obj的name space中删除一个name
-    vars(obj) 返回一个object的name space。用dictionary表示
-    locals() 返回一个局部name space,用dictionary表示
-    globals() 返回一个全局name space,用dictionary表示
-    type(obj) 查看一个obj的类型
-    isinstance(obj,cls) 查看obj是不是cls的instance
-    issubclass(subcls,supcls) 查看subcls是不是supcls的子类
+help(obj) 在线帮助, obj可是任何类型
+callable(obj) 查看一个obj是不是可以像函数一样调用
+repr(obj) 得到obj的表示字符串，可以利用这个字符串eval重建该对象的一个拷贝
+eval_r(str) 表示合法的python表达式，返回这个表达式
+dir(obj) 查看obj的name space中可见的name
+hasattr(obj,name) 查看一个obj的name space中是否有name
+getattr(obj,name) 得到一个obj的name space中的一个name
+setattr(obj,name,value) 为一个obj的name space中的一个name指向vale这个object
+delattr(obj,name) 从obj的name space中删除一个name
+vars(obj) 返回一个object的name space。用dictionary表示
+locals() 返回一个局部name space,用dictionary表示
+globals() 返回一个全局name space,用dictionary表示
+type(obj) 查看一个obj的类型
+isinstance(obj,cls) 查看obj是不是cls的instance
+issubclass(subcls,supcls) 查看subcls是不是supcls的子类
 ```
 
-类型转换函数
 ```py
-    chr(i) 把一个ASCII数值,变成字符
-    ord(i) 把一个字符或者unicode字符,变成ASCII数值
-    oct(x) 把整数x变成八进制表示的字符串
-    hex(x) 把整数x变成十六进制表示的字符串
-    str(obj) 得到obj的字符串描述
-    list(seq) 把一个sequence转换成一个list
-    tuple(seq) 把一个sequence转换成一个tuple
-    dict(),dict(list) 转换成一个dictionary
-    int(x) 转换成一个integer
-    long(x) 转换成一个long interger
-    float(x) 转换成一个浮点数
-    complex(x) 转换成复数
-    max(...) 求最大值
-    min(...) 求最小值
+str(obj) 得到obj的字符串描述
 ```
 
-  用于执行程序的内置函数
-    complie 如果一段代码经常要使用,那么先编译,再运行会更快。
 
 ## 2.和操作系统相关的调用
-###  系统相关的信息模块 import sys
+###  sys
     sys.argv是一个list,包含所有的命令行参数.
     sys.stdout sys.stdin sys.stderr 分别表示标准输入输出,错误输出的文件对象.
     sys.stdin.readline() 从标准输入读一行 sys.stdout.write("a") 屏幕输出a
@@ -281,6 +215,17 @@ print(time.time())
     sys.platform 得到运行的操作系统环境
     sys.path 是一个list,指明所有查找module，package的路径.
 
+### 观察引用计数的小程序
+```py
+import sys
+
+a='abc'
+print(id(a))
+print(sys.getrefcount(a))
+b='abc'
+id(b)
+print(sys.getrefcount(a))
+```
 ###  操作系统相关的调用和操作 import os
     os.environ 一个dictionary 包含环境变量的映射关系 os.environ["HOME"] 可以得到环境变量HOME的值
     os.chdir(dir) 改变当前目录 os.chdir('d:\\outlook') 注意windows下用到转义
@@ -327,19 +272,6 @@ print(time.time())
                 print os.path.join(dirname, filename)
         os.path.walk('/home/huaying', test_fun, "a.c")
 
-##  文件操作
-    打开文件
-      f = open("filename", "r") r只读 w写 rw读写 rb读二进制 wb写二进制 w+写追加
-    读写文件
-      f.write("a") f.write(str) 写一字符串 f.writeline() f.readlines() 与下read类同
-      f.read() 全读出来 f.read(size) 表示从文件中读取size个字符
-      f.readline() 读一行,到文件结尾,返回空串. f.readlines() 读取全部，返回一个list. list每个元素表示一行，包含"\n"\
-      f.tell() 返回当前文件读取位置
-      f.seek(off, where) 定位文件读写位置. off表示偏移量，正数向文件尾移动，负数表示向开头移动。
-        where为0表示从开始算起,1表示从当前位置算,2表示从结尾算.
-      f.flush() 刷新缓存
-    关闭文件
-      f.close()
 
 ## regular expression 正则表达式 import re
 ```
