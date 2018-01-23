@@ -35,38 +35,3 @@ y=math.sin(0.5)#用math包中的函数sin,赋值给y
 >>> string.whitespace
 
 ' \t\n\r\x0b\x0c'
-
-
-
-# 五、列表(list)
-
-
-*   Python的浅拷贝与深拷贝
-
-
-
-# 九、类
-
-构造类
-
-class myclass (object):
-
-    print('sss')
-
-    pass
-
-x=myclass()
-
-构造类方式
-```
-class myclass1(object):
-
-    a='a';#类方式的构造方法1
-
-    def b(self,param1):#类方式的构造方法2
-
-        self.c='c'#类方式的构造方法3，但只有调用这个函数时，这个方法才能构造成功
-
-        return param1*2
-```
-range(1,20,3)#类似Matlab 中的1:3:20 或colon
