@@ -1,41 +1,4 @@
 
-<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
-
-* [Module安装](#module安装)
-	* [pip安装](#pip安装)
-	* [conda安装](#conda安装)
-	* [清华镜像](#清华镜像)
-	* [文件安装](#文件安装)
-* [自带函数](#自带函数)
-* [OS库](#os库)
-	* [os1](#os1)
-	* [os.path一个子库](#ospath一个子库)
-	* [os.walk(path)](#oswalkpath)
-	* [运行CMD命令](#运行cmd命令)
-* [sched库](#sched库)
-* [py2exe](#py2exe)
-* [常用内置函数](#常用内置函数)
-	* [1.常用内置函数：(不用import就可以直接使用)](#1常用内置函数不用import就可以直接使用)
-	* [2.和操作系统相关的调用](#2和操作系统相关的调用)
-		* [sys](#sys)
-		* [观察引用计数的小程序](#观察引用计数的小程序)
-		* [操作系统相关的调用和操作 import os](#操作系统相关的调用和操作-import-os)
-	* [regular expression 正则表达式 import re](#regular-expression-正则表达式-import-re)
-* [module](#module)
-* [关于import](#关于import)
-	* [1.import filename1](#1import-filename1)
-	* [2.from filename1 import def1](#2from-filename1-import-def1)
-	* [3.from filename1 import *](#3from-filename1-import)
-	* [4.](#4)
-	* [5.](#5)
-* [包（多层）](#包多层)
-
-<!-- tocstop -->
-
-
-
-
-
 # Module安装
 
 ## pip安装
