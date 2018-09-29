@@ -1,0 +1,63 @@
+<div class="col-md-3 col-lg-3 col-sm-13 col-xs-13 aside visible-md visible-lg">
+  <div class="row">
+    <div class="col-md-2 col-xs-2 aside1">
+      <br>
+      <a class="pjaxlink" href="/"><img src="{{ site.gavatar }}" class="img-ronuded avatar" style="border-width:0px; border-color:#000"></a>
+      <table class="table table-condensed">
+        <tr>
+          <td><a href="{{ site.author.github }}" target="_blank"><i class="fa fa-github fa-lg" style="color:#fff;"></i></a></td>
+          <td><a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-o fa-lg" style="color:#fff;"></i></a></td>
+        </tr>
+      </table>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>
+        {% for category in site.categories %}
+         <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
+        {% endfor %}
+        <li><a class="pjaxlink" href="/pages/about.html">{{ site.locals.about }}</a></li>
+      </ul>
+      <div class="aside1_bottom">
+
+      </div>
+    </div>
+    <div class="col-md-10 col-xs-10 aside2">
+      <div class="row">
+        <div class="tab-content">
+          {% for category in site.categories %}
+            <div class="tab-pane" id="{{ category[0] }}">
+              <div class="list-group">
+                {% for post in category[1] %}
+                  <a href="{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+          <div class="tab-pane" id="tags">
+            <div class="panel-group" id="accordion">
+              {% assign sorted_tags = site.tags | sort %}
+              {% for tag in sorted_tags %}
+
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#{{ tag[0] }}">{{ tag[0] }}</a>
+                      <span class="badge pull-right">{{ tag[1].size }}</span>
+                    </h4>
+                  </div>
+                  <div id="{{ tag[0] }}" class="panel-collapse collapse">
+                    {% assign sorted_tag = tag[1] | sort:"order" %}
+                    {% for post in sorted_tag %}
+                      <a  href='{{ post.url }}' class="list-group-item pjaxlink">
+                        <font color="#FF9224">【{{post.order}}】</font>{{post.title}}
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
