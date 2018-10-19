@@ -19,19 +19,3 @@ y=math.sin(0.5)#用math包中的函数sin,赋值给y
 *   特殊变量类型：
 
 1、复数2+3j, 0+1j(而不是单个的j)
-
-
-
-*   import string#string模块，处理字符比较方便
-
->>> string.punctuation
-```
-'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-```
->>> string.digits
-
-'0123456789'
-
->>> string.whitespace
-
-' \t\n\r\x0b\x0c'
